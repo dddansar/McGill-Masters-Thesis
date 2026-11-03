@@ -7,13 +7,10 @@ I did find some typos that I should probably mention and correct. But overall I 
 My Master's thesis still holds solid after over a decade of work experience as a Hardware Verification Engineer who frequently worked with assertions, and while reading my own thesis again, I even re-learned quite a few things from my logic synthesis courses that I had forgotten after working in the field for so long.
 
 If you want to read my Master's thesis, you can find it on:
-```
 https://mcgill.scholaris.ca/home
-```
+
 Search for "Danny Sarraf" and my thesis should show up where you can read it for free:
-```
 https://mcgill.scholaris.ca/items/85543aa4-f23f-4861-9b28-83b7096a41cb
-```
 
 The title of my Master's thesis was:
 "Optimizing assertions in semi-formal assertion-based verification"
