@@ -1,15 +1,15 @@
 # McGill Master's Thesis
 
-It has been over a decade since I last read my Master's thesis, and I had completely forgotten most of what was in it. Now that I have over a decade of work experience, I got a little curious as to what I had written back then and I decided to re-read my own Master's thesis from 2013 in November 2026.
+It has been over a decade since I last read my Master's thesis, and I had completely forgotten most of what was in it. Now that I have over a decade of work experience as a Hardware Verification Engineer, I got a little curious as to what I had written back then and I decided to re-read my own Master's thesis from 2013 in November 2026.
 
-I did find some typos that I should probably mention and correct. But overall I am actually impressed with my own Master's thesis from 2013. I didn't think it would be good since I did not have much work experience back then when I wrote my thesis and I questioned how much would past me would even know about these topics, but I was pleasantly surprised!
+I did find some typos that I should probably mention and correct. But overall I am actually impressed with my own Master's thesis from 2013. I didn't think it would be good since I did not have much work experience back when I wrote my thesis and I questioned how much past me would even know about these topics, but I was pleasantly surprised!
 
-My Master's thesis still holds solid after over a decade of work experience as a Hardware Verification Engineer who frequently worked with assertions, and while reading my own thesis again, I even re-learned quite a few things from my logic synthesis courses that I had forgotten after working in the field for so long.
+My Master's thesis still holds up after over a decade of work experience as a Hardware Verification Engineer who very frequently works with assertions, and while reading my own thesis again, I even re-learned quite a few things from my logic synthesis courses that I had forgotten after working in the field for so long.
 
-If you want to read my Master's thesis, you can find it on:
+If you want to read my Master's thesis, you can find for free on:
 https://mcgill.scholaris.ca/home
 
-Search for "Danny Sarraf" and my thesis should show up where you can read it for free:
+Search for "Danny Sarraf" and my thesis should show up where you can read it. Currently it can be found on the following link:
 https://mcgill.scholaris.ca/items/85543aa4-f23f-4861-9b28-83b7096a41cb
 
 The title of my Master's thesis was:
