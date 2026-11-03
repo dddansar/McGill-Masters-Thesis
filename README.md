@@ -6,7 +6,7 @@ I did find some typos that I should probably mention and correct. But overall I 
 
 My Master's thesis still holds up after over a decade of work experience as a Hardware Verification Engineer who very frequently works with assertions, and while reading my own thesis again, I even re-learned quite a few things from my logic synthesis courses that I had forgotten after working in the field for so long.
 
-If you want to read my Master's thesis, you can find for free on:
+If you want to read my Master's thesis, you can find it for free on:
 https://mcgill.scholaris.ca/home
 
 Search for "Danny Sarraf" and my thesis should show up where you can read it. Currently it can be found on the following link:
