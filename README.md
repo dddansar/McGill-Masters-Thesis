@@ -274,21 +274,23 @@ The merged Karnaugh Map for {F,E,O,U} requires a total of 12 assertions/cubes in
             RB
         │   00    01    11    10
       ──┼─────────────────────────
-  WA  00│ ⎛FE00  FE00⎞⎛0E0E  0E0E⎞
-      01│ ⎝FE00  FE00⎠⎝0E0E  0E0E⎠
-      11│ ⎛F0F0  F0F0⎞⎛FE00  FE00⎞
-      10│ ⎝F0F0  F0F0⎠⎝FE00  FE00⎠
+  WA  00│ ⎛FE00  FE00⎞⎛010E⎞⎛0E0E⎞
+      01│ ⎝FE00  FE00⎠⎝010E⎠⎝0E0E⎠
+      11│ (10F0  10F0)⎛FE00  FE00⎞
+      10│ (F0F0  F0F0)⎝FE00  FE00⎠
            FEOU(t+1)
 ```
 
 List of assertion needed to cover merging Karnaugh Maps with State Variable Outputs FEOU(t+1):
 
 ```
-    {!W & !R} |=> {$stable(F) && $stable(E) && O==0 && U==0};
-    {!W &  R} |=> {      F==0 && $stable(E) && O==0 && U==E};
-    { W & !R} |=> {$stable(F) &&       E==0 && O==F && U==0};
-    { W &  R} |=> {$stable(F) && $stable(E) && O==0 && U==0};
+    {!W & !R}      |=> {$stable(F) && $stable(E) && O==0 && U==0};
+    {!W &  R & !B} |=> {      F==0 && $stable(E) && O==0 && U==E};
+    {!W &  R &  B} |=> {      F==0 &&       E==1 && O==0 && U==E};
+    { W & !R &  A} |=> {      F==1 &&       E==0 && O==F && U==0};
+    { W & !R & !A} |=> {$stable(F) &&       E==0 && O==F && U==0};
+    { W &  R}      |=> {$stable(F) && $stable(E) && O==0 && U==0};
 ```
 
-The Karnaugh Maps with State Variable Outputs FEOU(t+1) requires a total of 4 assertions/cubes in total instead of 22 (a reduction of 18 assertions!!!!!)
+The Karnaugh Maps with State Variable Outputs FEOU(t+1) requires a total of 6 assertions/cubes in total instead of 22 (a reduction of 16 assertions!!!!!)
 
