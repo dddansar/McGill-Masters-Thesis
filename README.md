@@ -147,7 +147,9 @@ The merged Karnaugh Map for {F,O} requires a total of 8 assertions/cubes in tota
 ```
 
 NOTE: The Karnaugh map above contains numbers 0-9 that help identify the different cubes to more easily track which cube applied to the functions below.
+
 NOTE: xx in the table above refers to the fact that full and empty can never occur at the same time.
+
 NOTE: Cubes 5 and 8 combine 2 distinct cubes (FR'=W'FR'+WFR') (W'E=W'R'E+W'RE)
 
 ```
