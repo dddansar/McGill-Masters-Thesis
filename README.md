@@ -22,7 +22,9 @@ I hope you like it and find it informative if you do choose to read it!
 Below are some corrections to my Master's thesis from 2013 that I mentioned. The corrections do alter some of the Karnaugh maps and therefore the set of assertions that fully cover the Karnaugh maps. That being said, the lessons learned and conclusions from the exercises remain fully valid and unchanged.
 
 Correction 1: If the FIFO is full and you do a simultaneous read and write, the FIFO should still be full. Similarly for empty.
+
 Correction 2: If the FIFO is full and you do a simultaneous read and write, an overflow should not occur. Similarly for empty and underflow.
+
 Correction 3: A FIFO can never be full and empty at the same time and should therefor be marked as x in the Karnaugh maps.
 
 NOTE:
