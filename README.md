@@ -13,7 +13,7 @@ Search for "Danny Sarraf" and my thesis should show up where you can read it. Cu
 https://mcgill.scholaris.ca/items/85543aa4-f23f-4861-9b28-83b7096a41cb
 
 The title of my Master's thesis was:
-"Optimizing assertions in semi-formal assertion-based verification"
+"Optimizing Assertions in Semi-Formal Assertion-Based Verification"
 
 I hope you like it and find it informative if you do choose to read it!
 
@@ -25,7 +25,7 @@ Correction 1: If the FIFO is full and you do a simultaneous read and write, the 
 
 Correction 2: If the FIFO is full and you do a simultaneous read and write, an overflow should not occur. Similarly for empty and underflow.
 
-Correction 3: A FIFO can never be full and empty at the same time and should therefor be marked as x in the Karnaugh maps.
+Correction 3: A FIFO can never be full and empty at the same time and should therefor be marked as x in the Karnaugh maps in order to maximize cubes.
 
 NOTE:
 ```
@@ -36,16 +36,16 @@ O  to overflow                         (output only)
 U  to underflow                        (output only)
 
 R  to a read attempt                   (input only)
-W  to write attempt                    (input only)
+W  to a write attempt                  (input only)
 A  write address =  read address - 1   (input only)
 B  read address  = write address - 1   (input only)
 ```
 
 The corrections mentioned above results in the following Karnaugh maps updates:
 
-## 6.1 Minimizing Assertions by Optimizing the Boolean Function
+## Chapter 6.1 Minimizing Assertions by Optimizing the Boolean Function
 
-### Karnaugh map for full:
+### Karnaugh Map for Full:
 
 ```
          RF
@@ -62,7 +62,7 @@ The corrections mentioned above results in the following Karnaugh maps updates:
 ```
 
 
-### Karnaugh map for empty:
+### Karnaugh Map for Empty:
 
 ```
          WE
@@ -79,7 +79,7 @@ The corrections mentioned above results in the following Karnaugh maps updates:
 ```
 
 
-### Karnaugh map for overflow:
+### Karnaugh Map for Overflow:
 
 ```
        RF
@@ -93,7 +93,7 @@ The corrections mentioned above results in the following Karnaugh maps updates:
    O'= W' + R + F'
 ```
 
-### Karnaugh map for underflow:
+### Karnaugh Map for Underflow:
 
 ```
        WE
@@ -127,7 +127,7 @@ Based on the Karnaugh maps, full and empty require 7 cubes/assertions each, over
    FO  = WR'F
 ```
 
-The merged Karnaugh Map for {F,O} requires a total of 8 assertions/cubes in total instead of 11
+The merged Karnaugh Map for {F,O} requires a total of 8 assertions/cubes in total instead of 11 for full and overflow individually.
 
 ### Merged Karnaugh Map for {F,E}:
 
@@ -135,19 +135,20 @@ The merged Karnaugh Map for {F,O} requires a total of 8 assertions/cubes in tota
             RBE
           │ 000 001 011 010 110 111 101 100
        ───┼─────────────────────────────────
-   WAF 000│ 1  ⎠⎛ e 8 e⎞⎝   ⎛9 e⎛ e⎞0 e⎞⎛2 ⎞
-       001│  f ⎞⎜xx  xx⎟⎛f  ⎜  e⎜ e⎟  e⎟⎜  ⎟
-       011│5 f ⎠⎜xx  xx⎟⎝f  ⎜  e⎜ e⎟  e⎟⎜  ⎟
+   WAF 000│ 1  ⎠⎛ e 8 e⎞⎝   ⎛9 e⎛ e⎞8 e⎞⎛2 ⎞
+       001│ ⎛f 5⎜xx  xx⎟ f ⎞⎜  e⎜ e⎟  e⎟⎜  ⎟
+       011│ ⎝f  ⎜xx  xx⎟ f ⎠⎜  e⎜ e⎟0 e⎟⎜  ⎟
        010│    ⎞⎝ e   e⎠⎛   ⎝  e⎜ e⎠  e⎟⎝  ⎠
-       110│ ⎛f   f   f 6 f ⎞   )⎜ e   e⎟(
-       111│ ⎛f   f   f   f   f  ⎜xx  xx⎟ f ⎞
+       110│ ⎛f   f   f 6 f ⎞ 4 )⎜ e   e⎟(
+       111│ ⎛f 5 f   f   f   f  ⎜xx  xx⎟ f ⎞
        101│ ⎝f   f   f 7 f   f  ⎜xx  xx⎟ f ⎠
-       100│ (3             )  4)⎝ e   e⎠(
+       100│ (3             )   )⎝ e   e⎠(
              FE
 ```
 
-NOTE: The Karnaugh map above contains numbers 0-9 and A-C that count the different cubes and help to more easily track which cube applies to the functions below.
+NOTE: The Karnaugh map above contains numbers 0-9 that help identify the different cubes to more easily track which cube applied to the functions below.
 NOTE: xx in the table above refers to the fact that full and empty can never occur at the same time.
+NOTE: Cubes 5 and 8 combine 2 distinct cubes (FR'=W'FR'+WFR') (W'E=W'R'E+W'RE)
 
 ```
       F'E' = W'F'R'E' + RW'B'E' + WR'A'F' + WE'RF' (1+2+3+4)
@@ -156,7 +157,7 @@ NOTE: xx in the table above refers to the fact that full and empty can never occ
       F E  = 0 (never reachable)
 ```
 
-The merged Karnaugh Map for {F,E} requires a total of 10 assertions/cubes in total instead of 14
+The merged Karnaugh Map for {F,E} requires a total of 10 assertions/cubes in total instead of 14 for full and empty individually.
 
 ### Merged Karnaugh Map for {F,U}:
 
@@ -184,7 +185,7 @@ NOTE: xx in the table above refers to the fact that full and empty can never occ
    F U  = 0 (never occurs)
 ```
 
-The merged Karnaugh Map for {F,U} requires a total of 8 assertions/cubes in total instead of 11
+The merged Karnaugh Map for {F,U} requires a total of 8 assertions/cubes in total instead of 11 for full and underflow individually.
 
 ### Merged Karnaugh Map for {F,E,O,U}:
 
@@ -193,13 +194,13 @@ The merged Karnaugh Map for {F,U} requires a total of 8 assertions/cubes in tota
           │ 000 001 011 010 110 111 101 100
        ───┼─────────────────────────────────
    WAF 000│ 1  ⎠⎛ e 9 e⎞⎝   ⎛Ae⎞⎛ue  ue⎞⎛2 ⎞
-       001│ ⎛f  ⎜x   x ⎟ f ⎞⎜ e⎟⎜x B x ⎟⎜  ⎟
-       011│ ⎝f 5⎜x   x ⎟ f ⎠⎜ e⎟⎜x   x ⎟⎜  ⎟
+       001│ ⎛f 5⎜x   x ⎟ f ⎞⎜ e⎟⎜x B x ⎟⎜  ⎟
+       011│ ⎝f  ⎜x   x ⎟ f ⎠⎜ e⎟⎜x   x ⎟⎜  ⎟
        010│    ⎞⎝ e   e⎠⎛   ⎝ e⎠⎝ue  ue⎠⎝  ⎠
-       110│ ⎛f   f   f 6 f ⎞   )⎛ e C e⎞(
+       110│ (f   f   f 6 f ) 4 )⎛ e C e⎞(
        111│ ⎛fo  x   x   fo⎞⎛f 7⎜x   x ⎟ f ⎞
        101│ ⎝fo  x   x 8 fo⎠⎝f  ⎜x   x ⎟ f ⎠
-       100│ (3             )  4)⎝ e   e⎠(
+       100│ (3             )   )⎝ e   e⎠(
              FEOU
 ```
 
@@ -211,13 +212,13 @@ NOTE: The Karnaugh map above contains numbers 0-9 and A-C that count the differe
       F'E'O U'= 0
       F'E'O U = 0
       F'E O'U'= W'R'E + W'RBE' + WRE                  (9+A+C)
-      F'E O'U = W'RE    (B)
+      F'E O'U = W'RE                                  (B)
       F'E O U'= 0
       F'E O U = 0
 
       F E'O'U'= W'FR' + WAF'R' + WFR                  (5+6+7)
       F E'O'U = 0
-      F E'O U'= WFR'    (8)
+      F E'O U'= WFR'                                  (8)
       F E'O U = 0
       F E O'U'= 0
       F E O'U = 0
@@ -227,27 +228,45 @@ NOTE: The Karnaugh map above contains numbers 0-9 and A-C that count the differe
 
 The merged Karnaugh Map for {F,E,O,U} requires a total of 12 assertions/cubes in total instead of 22 (a reduction of 10 assertions!)
 
-## 6.2.5 State Variables as Karnaugh Map Outputs
+## Chapter 6.2.5 State Variables as Karnaugh Map Outputs
+
+### Individual Karnaugh Map with State Variables for Full, Overflow, Empty and Underflow:
 
 ```
         RW
        │00 01 11 10
       ─┼────────────
-   A  0│ F  F
-      1│ F  1
+   A  0│⎛F⎞ F)⎛    ⎞
+      1│⎝F⎠(1)⎝    ⎠
          F(t+1)
-         4 Assertions
+         4 Assertions/Cubes
 
          W
        │ 0  1
       ─┼──────
-   R  0│    F
-      1│
+   R  0│⎛ ⎞(F)
+      1│(    )
          O(t+1)
-         3 Assertions
+         3 Assertions/Cubes
+
+        WR
+       │00 01 11 10
+      ─┼────────────
+   B  0│⎛E⎞ E)⎛    ⎞
+      1│⎝E⎠(1)⎝    ⎠
+         E(t+1)
+         4 Assertions/Cubes
+
+         R
+       │ 0  1
+      ─┼──────
+   W  0│⎛ ⎞(E)
+      1│(    )
+         U(t+1)
+         3 Assertions/Cubes
 ```
 
-### Merging Karnaugh Maps with State Variable Outputs FEOU(t+1)
+### Merged Karnaugh Maps with State Variable Outputs FEOU(t+1)
 
 ```
             RB
@@ -260,13 +279,13 @@ The merged Karnaugh Map for {F,E,O,U} requires a total of 12 assertions/cubes in
            FEOU(t+1)
 ```
 
-List of assertion needed to cover merging Karnaugh Maps with State Variable Outputs FEOU(t+1) above:
+List of assertion needed to cover merging Karnaugh Maps with State Variable Outputs FEOU(t+1):
 
 ```
-{!W & !R} |=> {$stable(F) && $stable(E) && O==0 && U==0};
-{!W &  R} |=> {      F==0 && $stable(E) && O==0 && U==E};
-{ W & !R} |=> {$stable(F) &&       E==0 && O==F && U==0};
-{ W &  R} |=> {$stable(F) && $stable(E) && O==0 && U==0};
+    {!W & !R} |=> {$stable(F) && $stable(E) && O==0 && U==0};
+    {!W &  R} |=> {      F==0 && $stable(E) && O==0 && U==E};
+    { W & !R} |=> {$stable(F) &&       E==0 && O==F && U==0};
+    { W &  R} |=> {$stable(F) && $stable(E) && O==0 && U==0};
 ```
 
 The Karnaugh Maps with State Variable Outputs FEOU(t+1) requires a total of 4 assertions/cubes in total instead of 22 (a reduction of 18 assertions!!!!!)
